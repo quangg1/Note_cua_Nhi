@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Note to be a Better Girlfriend</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Montserrat:wght@400;600&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.note-form {
+  background: #ffffffcc;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.note-form h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #ff6b81;
+}
+
+.note-form p {
+  font-size: 1em;
+  line-height: 1.6em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #ff6b81;
+}
+
+.signature {
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #ff6b81;
+}
+
+.note-form button {
+  background: linear-gradient(45deg, #ff6b81, #ffa69e);
+  border: none;
+  color: white;
+  padding: 14px 30px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.note-form button:hover {
+  background: linear-gradient(45deg, #ffa69e, #ff6b81);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* Trái tim */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: fly 1s forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 10px;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -180px) scale(1.5) rotate(-45deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="note-form">
+    <h1>SELF-NOTE 📝💕</h1>
+    <p>Gửi anh <span class="highlight">Nguyễn Minh Phú Quang</span>,</p>
+
+    <p>Em đang trên hành trình "<span class="highlight">update</span>" bản thân lên phiên bản tốt hơn, và đây là vài dòng "patch notes" em muốn gửi anh biết:</p>
+
+    <p><span class="highlight">Tối ưu hóa thời gian:</span> Em sẽ ngừng lãng phí "tài nguyên hệ thống" vào những suy nghĩ tiêu cực, để dành thời gian chất lượng hơn cho anh và cho chính mình.</p>
+
+    <p><span class="highlight">Gỡ bỏ "bug" tự ti:</span> Em sẽ chăm sóc bản thân tốt hơn, tự tin hơn, và ngừng tìm kiếm sự chú ý của anh bằng những cách "lỗi". Thay vào đó, em sẽ thể hiện tình cảm một cách trực tiếp và tích cực.</p>
+
+    <p><span class="highlight">Cài đặt "chế độ vui vẻ":</span> Em sẽ giữ cho đầu óc và tay chân luôn bận rộn với những điều ý nghĩa. Mục tiêu là để mỗi khi gặp anh, em đều ở trong trạng thái năng lượng tốt nhất.</p>
+
+    <p>Mong anh sẽ tiếp tục đồng hành và ủng hộ em trong phiên bản nâng cấp này nhé!</p>
+
+    <div class="signature">
+        Yêu anh,<br>
+        <span class="highlight">Bùi Đặng Ngọc Nhi</span>
+    </div>
+
+    <button type="button" onclick="spawnHeart(event)">Nhấn yêu 💕</button>
+</div>
+
+<script>
+function spawnHeart(e) {
+  const btn = e.currentTarget;
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  
+  // Chọn màu trái tim pastel ngẫu nhiên
+  const colors = ["#ff6b81","#ffb6b9","#ffc3a0","#ff7f50","#ff99cc"];
+  heart.style.background = colors[Math.floor(Math.random() * colors.length)];
+  
+  // Vị trí xuất hiện ngẫu nhiên xung quanh nút
+  const offsetX = Math.random() * 40 - 20;
+  heart.style.left = `calc(50% + ${offsetX}px)`;
+  
+  btn.appendChild(heart);
+
+  // Xóa heart sau khi animation kết thúc
+  setTimeout(() => {
+    heart.remove();
+  }, 1000);
+}
+</script>
+</body>
+</html>
